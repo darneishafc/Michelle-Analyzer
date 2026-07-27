@@ -58,5 +58,7 @@ const dist = path.join(__dirname, "dist");
 app.use(express.static(dist));
 app.get("*", (_req, res) => res.sendFile(path.join(dist, "index.html")));
 
+// Hostinger's reverse proxy forwards public traffic to port 3000 (confirmed via Hostinger support).
+// Bind to 3000 explicitly so the platform can always reach the app; PORT env var can still override for other hosts.
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Michelle Analyzer server listening on port ${port}`));
+app.listen(port, "0.0.0.0", () => console.log(`Michelle Analyzer server listening on 0.0.0.0:${port}`));
