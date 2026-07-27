@@ -1,9 +1,9 @@
-import "dotenv/config"; // loads .env locally if present; no-op in production (Hostinger sets the env var directly)
-import express from "express";
-import path from "path";
-import { fileURLToPath } from "url";
+// CommonJS (project is no longer "type":"module") so the host's require()-based
+// launcher can load its preload helper without an ERR_REQUIRE_ESM crash.
+require("dotenv").config(); // loads .env locally if present; no-op in production (Hostinger sets the env var directly)
+const express = require("express");
+const path = require("path");
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 app.use(express.json({ limit: "1mb" }));
 
@@ -58,7 +58,5 @@ const dist = path.join(__dirname, "dist");
 app.use(express.static(dist));
 app.get("*", (_req, res) => res.sendFile(path.join(dist, "index.html")));
 
-// Hostinger's reverse proxy forwards public traffic to port 3000 (confirmed via Hostinger support).
-// Bind to 3000 explicitly so the platform can always reach the app; PORT env var can still override for other hosts.
 const port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", () => console.log(`Michelle Analyzer server listening on 0.0.0.0:${port}`));
