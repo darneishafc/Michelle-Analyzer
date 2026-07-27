@@ -59,4 +59,4 @@ app.use(express.static(dist));
 app.get("*", (_req, res) => res.sendFile(path.join(dist, "index.html")));
 
 const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Liftfolio analyzer listening on ${port}`));
+app.listen(port, () => console.log(`Michelle Analyzer server listening on port ${port}`));
