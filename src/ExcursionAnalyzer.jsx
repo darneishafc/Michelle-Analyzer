@@ -622,7 +622,7 @@ export default function ExcursionAnalyzer() {
       <div className="exc"><style>{STYLES}</style>
         <div className="wrap">
           <div className="topbar">
-            <div className="brand"><div className="mark">EXCUR<b>SION</b></div><div className="tag">replay trade analyzer</div></div>
+            <div className="brand"><div className="mark">MICHELLE <b>ANALYZER</b></div><div className="tag">replay trade analyzer</div></div>
           </div>
           <div className="hero">
             <h1>Is it your <span className="t">entries</span> or your <span className="a">exits</span>?</h1>
@@ -659,7 +659,7 @@ export default function ExcursionAnalyzer() {
     <div className="exc"><style>{STYLES}</style>
       <div className="wrap">
         <div className="topbar">
-          <div className="brand"><div className="mark">EXCUR<b>SION</b></div><div className="tag">replay trade analyzer</div></div>
+          <div className="brand"><div className="mark">MICHELLE <b>ANALYZER</b></div><div className="tag">replay trade analyzer</div></div>
           <div className="filepill"><FileText size={14} /> {fileName} · {trades.length} trades</div>
         </div>
 
